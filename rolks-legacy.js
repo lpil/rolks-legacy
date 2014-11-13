@@ -1,9 +1,14 @@
 (function() {
-  var audio = new Audio();
+  var player       = new Audio(),
+      audioContext = new AudioContext(),
+      analyser     = audioContext.createAnalyser(),
+      source       = audioContext.createMediaElementSource(player);
 
-  audio.src = 'http://radio.108.pl:8006/ambient.ogg';
-  audio.controls = true;
-  audio.autoplay = true;
+  player.src = 'http://radio.108.pl:8006/ambient.ogg';
+  player.controls = true;
+  player.autoplay = true;
+  window.document.body.appendChild(player);
 
-  window.document.body.appendChild(audio);
+  source.connect(analyser);
+  source.connect(audioContext.destination);
 }());
