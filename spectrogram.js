@@ -23,7 +23,7 @@
       ctx.moveTo(i + 0.5, height - 0.5);
       ctx.lineTo(i + 0.5, height - 0.5 - freqData[i]);
     }
-    ctx.strokeStyle = '#2a2';
+    ctx.strokeStyle = '#f91';
     ctx.stroke();
   }, 1000 / 30);
 }());
