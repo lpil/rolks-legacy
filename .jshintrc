@@ -26,9 +26,8 @@
 
     // Environments
     "browser"  : true,
-    "jquery"   : true,
+    "devel"    : true,
 
     "globals"   : {
-        "AudioContext": true
     }
 }
