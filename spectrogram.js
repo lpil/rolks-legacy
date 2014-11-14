@@ -26,5 +26,5 @@
       ctx.lineTo(i + 0.5, height - 0.5 - freqData[i]);
       ctx.stroke();
     }
-  }, 50);
+  }, 1000 / 20);
 }());
