@@ -5,7 +5,6 @@
       source       = audioContext.createMediaElementSource(player),
       bufferLength = analyser.frequencyBinCount,
       dataArray    = new Uint8Array(bufferLength),
-      getBands,
       average,
       rolk;
 
@@ -23,7 +22,13 @@
   };
 
 
-  getBands = function getBands(numBands) {
+  rolk.getFreqData = function getFreqData() {
+    analyser.getByteFrequencyData(dataArray);
+    return dataArray;
+  };
+
+
+  rolk.getBands = function getBands(numBands) {
     var i, l,
         band,
         chunk = Math.floor(dataArray.length / numBands),
@@ -52,6 +57,6 @@
   analyser.fftSize = 2048;
 
   // Perform FFT on audio, split into bands, print values
-  setInterval(function() { console.log(getBands(16)); }, 100 );
+  setInterval(function() { console.log(rolk.getBands(16)); }, 100 );
 
 }());
