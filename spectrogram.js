@@ -10,8 +10,6 @@
   window.rolk = window.rolk || {};
   rolk = window.rolk;
 
-  ctx.strokeStyle = '#000';
-
   setInterval(function() {
     freqData = rolk.getFreqData();
 
@@ -24,7 +22,8 @@
     while (i--) {
       ctx.moveTo(i + 0.5, height - 0.5);
       ctx.lineTo(i + 0.5, height - 0.5 - freqData[i]);
-      ctx.stroke();
     }
-  }, 1000 / 20);
+    ctx.strokeStyle = '#2a2';
+    ctx.stroke();
+  }, 1000 / 30);
 }());
