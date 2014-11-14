@@ -1,12 +1,12 @@
 (function() {
-  var player       = new Audio(),
-      audioContext = new window.AudioContext(),
-      analyser     = audioContext.createAnalyser(),
-      source       = audioContext.createMediaElementSource(player),
+  var rolk,
+      player       = new Audio(),
+      context = new window.AudioContext(),
+      analyser     = context.createAnalyser(),
+      source       = context.createMediaElementSource(player),
       bufferLength = analyser.frequencyBinCount,
       dataArray    = new Uint8Array(bufferLength),
-      average,
-      rolk;
+      average;
 
   window.rolk = window.rolk || {};
   rolk = window.rolk;
@@ -56,7 +56,7 @@
 
   // Routing
   source.connect(analyser);
-  source.connect(audioContext.destination);
+  source.connect(context.destination);
 
   // Transform config
   analyser.fftSize = 2048;
