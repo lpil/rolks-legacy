@@ -43,6 +43,11 @@
   };
 
 
+  rolk.setAudioSource = function setAudioSource(url) {
+    player.src = url;
+  };
+
+
   // Start audio source
   player.src = 'http://radio.108.pl:8006/ambient.ogg';
   player.controls = true;
@@ -55,8 +60,4 @@
 
   // Transform config
   analyser.fftSize = 2048;
-
-  // Perform FFT on audio, split into bands, print values
-  setInterval(function() { console.log(rolk.getBands(16)); }, 100 );
-
 }());
