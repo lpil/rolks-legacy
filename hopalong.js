@@ -13,7 +13,7 @@
       yy;
   
   canvas.width  = width;
-  canvas.height = height,
+  canvas.height = height;
 
   while (points--) {
     ctx.fillRect(x*130 + width / 2, y*130 + height / 2, 1, 1);
